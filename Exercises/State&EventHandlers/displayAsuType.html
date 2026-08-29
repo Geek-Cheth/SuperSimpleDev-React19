@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Display As You Type.</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="react-basics.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+
+
+        function DisplayContainer(){
+            const [name, setName] = React.useState("");
+
+            function handleChange(event){
+                setName(event.target.value);
+
+            }
+
+            function resetName(){
+                setName("");
+            }
+
+            function setExampleName(){
+                setName("Chethina");
+            }
+            return(
+                <>
+                    <input placeholder="Type a name here" onChange={handleChange} value={name} />
+                    <button onClick={resetName}>Reset</button>
+                    <button onClick={setExampleName}>Example</button>
+                    <p>Hello {name}</p>
+                    
+                </>
+            )
+        }
+
+        function App(){
+          return(
+              <DisplayContainer />
+        )
+        }
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html

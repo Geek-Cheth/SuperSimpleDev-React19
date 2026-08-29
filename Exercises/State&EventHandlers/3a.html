@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>State and Event Handlers.</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="react-basics.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+
+        
+
+        function CounterGroup(){
+          const [count, setCount] = React.useState(0);
+
+          function update(){
+            setCount(count + 1);
+          }
+
+          function Button({ count, update }){
+
+            if(count === 1){
+              return(
+                <>
+                  <button onClick={update}>Clicked {count} time</button>
+                </>
+              )
+            }
+
+            return(
+              <>
+                <button onClick={update}>Clicked {count} times</button>
+              </>
+            )
+          }
+          function ResetButton(){
+            function resetCounter(){
+              setCount(0);
+            }
+            return(
+              <>
+                <button onClick={resetCounter}>Reset</button>
+              </>
+            )
+          }
+          return(
+              <>
+                  <Button count={count} update={update} />
+                  <Button count={count} update={update} />
+                  <ResetButton />
+              </>
+          );
+        }
+
+        function App(){
+          return(
+            <>
+              <CounterGroup />
+            </>
+        )
+        }
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html

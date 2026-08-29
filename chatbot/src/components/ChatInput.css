@@ -1,0 +1,27 @@
+.send-button {
+  background-color: rgb(25, 135, 84);
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 10px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+.send-button:hover{
+  background-color: rgb(21, 114, 71);
+}
+
+.input-textbox {
+  border-radius: 10px;
+  border-width: 1px;
+  text-align: left;
+  padding: 12px 15px;
+  flex-grow: 1;
+}
+
+.chat-input-container {
+  display: flex;
+  margin-bottom: 60px;
+}
