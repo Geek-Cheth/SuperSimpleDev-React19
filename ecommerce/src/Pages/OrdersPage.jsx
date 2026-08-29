@@ -1,10 +1,12 @@
 import './OrdersPage.css';
 import { Header } from '../components/Header';
+import buyAgainIcon from '../assets/icons/buy-again.png';
 
 export function OrdersPage() {
     return (
         <>
             <title>Orders</title>
+            <link rel='icon' href='/images/orders-favicon.png'/>
             <Header />
 
             <div class="orders-page">
@@ -47,7 +49,7 @@ export function OrdersPage() {
                                     Quantity: 1
                                 </div>
                                 <button class="buy-again-button button-primary">
-                                    <img class="buy-again-icon" src="images/icons/buy-again.png" />
+                                    <img class="buy-again-icon" src={buyAgainIcon} />
                                     <span class="buy-again-message">Add to Cart</span>
                                 </button>
                             </div>
@@ -75,7 +77,7 @@ export function OrdersPage() {
                                     Quantity: 2
                                 </div>
                                 <button class="buy-again-button button-primary">
-                                    <img class="buy-again-icon" src="images/icons/buy-again.png" />
+                                    <img class="buy-again-icon" src={buyAgainIcon} />
                                     <span class="buy-again-message">Add to Cart</span>
                                 </button>
                             </div>
@@ -126,7 +128,7 @@ export function OrdersPage() {
                                     Quantity: 2
                                 </div>
                                 <button class="buy-again-button button-primary">
-                                    <img class="buy-again-icon" src="images/icons/buy-again.png" />
+                                    <img class="buy-again-icon" src={buyAgainIcon} />
                                     <span class="buy-again-message">Add to Cart</span>
                                 </button>
                             </div>
