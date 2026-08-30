@@ -1,4 +1,4 @@
-import { HomePage } from './Pages/HomePage';
+import { HomePage } from './Pages/home/HomePage';
 import axios from 'axios';
 import { Routes, Route } from 'react-router';
 import { CheckoutPage } from './Pages/checkout/CheckoutPage';
