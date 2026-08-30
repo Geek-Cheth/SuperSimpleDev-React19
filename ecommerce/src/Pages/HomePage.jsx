@@ -1,16 +1,23 @@
-import './HomePages.css';
+import axios from 'axios';
 import { products } from '../../data/products';
 import { Header } from '../components/Header';
 import checkmarkIcon from '../assets/icons/checkmark.png';
+import './HomePages.css';
 
 export function HomePage() {
-    fetch('http://localhost:3000/api/products/')
+
+    // fetch('http://localhost:3000/api/products/')
+    //     .then((response) => {
+    //         return response.json()
+    //         }).then((data) => {
+    //             console.log(data);
+    //         });
+
+    axios.get('http://localhost:3000/api/products/')
         .then((response) => {
-            return response.json()
-            }).then((data) => {
-                console.log(data);
+            console.log(response.data);
             });
-            
+
     return (
         <>
             <title>Ecommerce Project</title>
