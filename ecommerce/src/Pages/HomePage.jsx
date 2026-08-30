@@ -7,8 +7,9 @@ import './HomePages.css';
 export function HomePage() {
 
     const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([]);
 
-    // fetch('http://localhost:3000/api/products/')
+    // fetch('http://localhost:3000/api/products')
     //     .then((response) => {
     //         return response.json()
     //         }).then((data) => {
@@ -16,10 +17,15 @@ export function HomePage() {
     //         });
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/products/')
+        axios.get('http://localhost:3000/api/products')
             .then((response) => {
                 setProducts(response.data);
             });
+
+        axios.get('http://localhost:3000/api/cart-items')
+            .then((response) => {
+                setCart(response.data);
+            })
     }, []); // [] makes the useEffects run only once.
 
     return (
@@ -27,7 +33,7 @@ export function HomePage() {
             <title>Ecommerce Project</title>
 
             <link rel='icon' href='/images/home-favicon.png' />
-            <Header />
+            <Header cart={cart} />
             <div className="home-page">
                 <div className="products-grid">
                     {products.map((product) => {
