@@ -7,7 +7,7 @@ import './HomePages.css';
 export function HomePage({ cart }) {
 
     const [products, setProducts] = useState([]);
-    
+
 
     // fetch('http://localhost:3000/api/products')
     //     .then((response) => {
@@ -17,12 +17,12 @@ export function HomePage({ cart }) {
     //         });
 
     useEffect(() => {
-        axios.get('/api/products')
-            .then((response) => {
-                setProducts(response.data);
-            });
+        const getHomeData = async () => {
+            const response = await axios.get('/api/products')
+            setProducts(response.data);
+        };
 
-        
+        getHomeData();
     }, []); // [] makes the useEffects run only once.
 
     return (
