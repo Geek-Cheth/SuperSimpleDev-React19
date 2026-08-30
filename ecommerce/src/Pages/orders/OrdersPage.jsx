@@ -23,17 +23,17 @@ export function OrdersPage({ cart }) {
             <link rel='icon' href='/orders-favicon.png' />
             <Header cart={cart}/>
 
-            <div class="orders-page">
-                <div class="page-title">Your Orders</div>
+            <div className="orders-page">
+                <div className="page-title">Your Orders</div>
 
-                <div class="orders-grid">
+                <div className="orders-grid">
                     {orders.map((order) => {
                         return (
-                            <div key={order.id} class="order-container">
+                            <div key={order.id} className="order-container">
 
                                 
                                 <OrderHeader order={order} />
-                                <OrderDetails orderProducts={order.products} />
+                                <OrderDetails orderId={order.id} orderProducts={order.products} />
                             </div>
                         );
                     })}
