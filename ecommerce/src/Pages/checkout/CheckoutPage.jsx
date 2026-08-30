@@ -1,11 +1,11 @@
 import { CheckoutHeader } from './CheckoutHeader';
 import './CheckoutPage.css';
 
-export function CheckoutPage() {
+export function CheckoutPage({ cart }) {
     return (
         <>
             <title>Checkout</title>
-            <link rel='icon' href='/images/cart-favicon.png'/>
+            <link rel='icon' href='/cart-favicon.png'/>
             <CheckoutHeader />
 
             <div className="checkout-page">
@@ -20,7 +20,7 @@ export function CheckoutPage() {
 
                             <div className="cart-item-details-grid">
                                 <img className="product-image"
-                                    src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+                                    src="/images/products/athletic-cotton-socks-6-pairs.jpg" />
 
                                 <div className="cart-item-details">
                                     <div className="product-name">
@@ -96,7 +96,7 @@ export function CheckoutPage() {
 
                             <div className="cart-item-details-grid">
                                 <img className="product-image"
-                                    src="images/products/intermediate-composite-basketball.jpg" />
+                                    src="/images/products/intermediate-composite-basketball.jpg" />
 
                                 <div className="cart-item-details">
                                     <div className="product-name">

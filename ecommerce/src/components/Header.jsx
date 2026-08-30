@@ -5,7 +5,7 @@ import mobileLogoWhite from '../assets/logos/mobile-logo-white.png';
 import searchIcon from '../assets/icons/search-icon.png';
 import cartIcon from '../assets/icons/cart-icon.png';
 
-export function Header({ cart }) {
+export function Header({ cart = [] }) {
     let totalQuantity = 0;
     
     cart.forEach((cartItem) => {

@@ -4,10 +4,10 @@ import { Header } from '../components/Header';
 import checkmarkIcon from '../assets/icons/checkmark.png';
 import './HomePages.css';
 
-export function HomePage() {
+export function HomePage({ cart }) {
 
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
+    
 
     // fetch('http://localhost:3000/api/products')
     //     .then((response) => {
@@ -17,22 +17,19 @@ export function HomePage() {
     //         });
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/products')
+        axios.get('/api/products')
             .then((response) => {
                 setProducts(response.data);
             });
 
-        axios.get('http://localhost:3000/api/cart-items')
-            .then((response) => {
-                setCart(response.data);
-            })
+        
     }, []); // [] makes the useEffects run only once.
 
     return (
         <>
             <title>Ecommerce Project</title>
 
-            <link rel='icon' href='/images/home-favicon.png' />
+            <link rel='icon' href='/home-favicon.png' />
             <Header cart={cart} />
             <div className="home-page">
                 <div className="products-grid">
@@ -50,7 +47,7 @@ export function HomePage() {
 
                                 <div className="product-rating-container">
                                     <img className="product-rating-stars"
-                                        src={`images/ratings/rating-${product.rating.stars * 10}.png`} />
+                                        src={`/images/ratings/rating-${product.rating.stars * 10}.png`} />
                                     <div className="product-rating-count link-primary">
                                         {product.rating.count}
                                     </div>

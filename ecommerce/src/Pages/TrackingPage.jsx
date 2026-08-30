@@ -24,7 +24,7 @@ export function TrackingPage() {
                         Quantity: 1
                     </div>
 
-                    <img class="product-image" src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+                    <img class="product-image" src="/images/products/athletic-cotton-socks-6-pairs.jpg" />
 
                     <div class="progress-labels-container">
                         <div class="progress-label">
