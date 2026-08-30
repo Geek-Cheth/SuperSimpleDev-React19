@@ -1,10 +1,12 @@
 import axios from 'axios';
-import { products } from '../../data/products';
+import { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
 import checkmarkIcon from '../assets/icons/checkmark.png';
 import './HomePages.css';
 
 export function HomePage() {
+
+    const [products, setProducts] = useState([]);
 
     // fetch('http://localhost:3000/api/products/')
     //     .then((response) => {
@@ -13,10 +15,12 @@ export function HomePage() {
     //             console.log(data);
     //         });
 
-    axios.get('http://localhost:3000/api/products/')
-        .then((response) => {
-            console.log(response.data);
+    useEffect(() => {
+        axios.get('http://localhost:3000/api/products/')
+            .then((response) => {
+                setProducts(response.data);
             });
+    }, []); // [] makes the useEffects run only once.
 
     return (
         <>
