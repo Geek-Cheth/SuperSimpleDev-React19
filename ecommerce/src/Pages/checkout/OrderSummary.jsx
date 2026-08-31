@@ -24,8 +24,6 @@ export function OrderSummary({ cart, deliveryOptions, loadCart }) {
                     </div>
                 );
             })}
-
-
         </div>
     )
 }
