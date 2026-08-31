@@ -103,3 +103,7 @@
     width: auto;
   }
 }
+
+.checkout-cartItem-update-textbox {
+  width: 40px;
+}

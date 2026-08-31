@@ -2,11 +2,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Header } from '../../components/Header';
 import { ProductsGrid } from './ProductsGrid';
+import { useSearchParams } from 'react-router';
 import './HomePages.css';
 
 export function HomePage({ cart, addToCart }) {
 
     const [products, setProducts] = useState([]);
+    const [searchParams] = useSearchParams();
+    const search = searchParams.get('search');
 
 
     // fetch('http://localhost:3000/api/products')
@@ -18,12 +21,17 @@ export function HomePage({ cart, addToCart }) {
 
     useEffect(() => {
         const getHomeData = async () => {
-            const response = await axios.get('/api/products')
+            let response;
+            if (search) {
+                response = await axios.get(`/api/products?search=${search}`);
+            } else {
+                response = await axios.get('/api/products');
+            }
             setProducts(response.data);
         };
 
         getHomeData();
-    }, []); // [] makes the useEffects run only once.
+    }, [search]); // [] makes the useEffects run only once.
 
     return (
         <>
@@ -32,7 +40,7 @@ export function HomePage({ cart, addToCart }) {
             <link rel='icon' href='/home-favicon.png' />
             <Header cart={cart} />
             <div className="home-page">
-                <ProductsGrid products={products} addToCart={addToCart}/>
+                <ProductsGrid products={products} addToCart={addToCart} />
             </div>
         </>
     );
