@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import { Link } from 'react-router';
 import buyAgainIcon from '../../assets/icons/buy-again.png';
 
-export function OrderDetails({ orderId, orderProducts }) {
+export function OrderDetails({ orderId, orderProducts, addToCart }) {
     return (
         <div className="order-details-grid">
             {orderProducts.map((orderProduct) => (
@@ -24,7 +24,11 @@ export function OrderDetails({ orderId, orderProducts }) {
                         </div>
                         <button className="buy-again-button button-primary">
                             <img className="buy-again-icon" src={buyAgainIcon} />
-                            <span className="buy-again-message">Add to Cart</span>
+                            <span className="buy-again-message" 
+                            onClick={() => {
+                                addToCart(orderProduct.product.id, orderProduct.quantity)
+                            }}
+                            >Add to Cart</span>
                         </button>
                     </div>
 

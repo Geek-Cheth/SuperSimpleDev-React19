@@ -5,7 +5,7 @@ import { OrderHeader } from './OrderHeader';
 import { OrderDetails } from './OrderDetails';
 import './OrdersPage.css';
 
-export function OrdersPage({ cart }) {
+export function OrdersPage({ cart, addToCart }) {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export function OrdersPage({ cart }) {
 
                                 
                                 <OrderHeader order={order} />
-                                <OrderDetails orderId={order.id} orderProducts={order.products} />
+                                <OrderDetails orderId={order.id} orderProducts={order.products} addToCart={addToCart} />
                             </div>
                         );
                     })}
